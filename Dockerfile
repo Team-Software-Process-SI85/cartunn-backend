@@ -1,11 +1,11 @@
-FROM maven:3.9.0-openjdk-21 AS build
-WORKDIR /app
-COPY pom.xml .
-RUN mvn dependency:go-offline -B
-COPY . .
-RUN mvn clean install -DskipTests
+FROM eclipse-temurin:17-jdk-focal
 
-FROM eclipse-temurin:21-jre-jammy
-COPY --from=build /app/target/*.jar /app.jar
-EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "/app.jar"]
+WORKDIR /app
+
+COPY .mvn/ .mvn
+COPY mvnw pom.xml ./
+RUN ./mvnw dependency:go-offline
+
+COPY src ./src
+
+CMD ["./mvnw", "spring-boot:run"]
