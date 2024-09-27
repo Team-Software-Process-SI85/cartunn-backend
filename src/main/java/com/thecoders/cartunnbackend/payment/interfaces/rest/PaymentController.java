@@ -10,10 +10,6 @@ import com.thecoders.cartunnbackend.payment.interfaces.rest.resources.UpdatePaym
 import com.thecoders.cartunnbackend.payment.interfaces.rest.transform.CreatePaymentCommandFromResourceAssembler;
 import com.thecoders.cartunnbackend.payment.interfaces.rest.transform.PaymentResourceFromEntityAssembler;
 import com.thecoders.cartunnbackend.payment.interfaces.rest.transform.UpdatePaymentCommandFromResourceAssembler;
-import com.thecoders.cartunnbackend.productRefunds.domain.model.queries.GetAllProductRefundsQuery;
-import com.thecoders.cartunnbackend.productRefunds.interfaces.rest.resources.UpdateProductRefundResource;
-import com.thecoders.cartunnbackend.productRefunds.interfaces.rest.transform.ProductRefundResourceFromEntityAssembler;
-import com.thecoders.cartunnbackend.productRefunds.interfaces.rest.transform.UpdateProductRefundCommandFromResourceAssembler;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -65,7 +61,6 @@ public class PaymentController {
 
     @GetMapping
     public ResponseEntity<List<PaymentResource>> getAllPayments(){
-        var getAllPaymentsQuery = new GetAllProductRefundsQuery();
         var payments = paymentQueryService.handle(new GetAllPaymentsQuery());
         var paymentsResources = payments.stream().map(PaymentResourceFromEntityAssembler::toResourceFromEntity)
                 .toList();
