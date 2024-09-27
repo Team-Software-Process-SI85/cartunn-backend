@@ -2,9 +2,10 @@ package com.thecoders.cartunnbackend.payment.domain.model.aggregates;
 
 import com.thecoders.cartunnbackend.payment.domain.model.commands.CreateCartCommand;
 import com.thecoders.cartunnbackend.product.domain.model.aggregates.Product;
+import com.thecoders.cartunnbackend.shared.domain.model.aggregates.AuditableAbstractAggregateRoot;
 import jakarta.persistence.*;
 import lombok.Getter;
-import com.thecoders.cartunnbackend.shared.domain.model.aggregates.AuditableAbstractAggregateRoot;
+
 import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Set;

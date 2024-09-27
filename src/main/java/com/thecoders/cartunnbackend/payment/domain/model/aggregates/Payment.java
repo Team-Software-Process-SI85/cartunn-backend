@@ -2,11 +2,9 @@ package com.thecoders.cartunnbackend.payment.domain.model.aggregates;
 
 
 import com.thecoders.cartunnbackend.payment.domain.model.commands.CreatePaymentCommand;
-import com.thecoders.cartunnbackend.product.domain.model.aggregates.Product;
-import com.thecoders.cartunnbackend.productRefunds.domain.model.aggregates.ProductRefund;
-import com.thecoders.cartunnbackend.productRefunds.domain.model.commands.CreateProductRefundCommand;
 import com.thecoders.cartunnbackend.shared.domain.model.aggregates.AuditableAbstractAggregateRoot;
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
 import lombok.Getter;
 import org.apache.logging.log4j.util.Strings;
 
